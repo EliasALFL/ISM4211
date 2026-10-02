@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Owl Weather | FAU Boca Raton</title>
+  <meta name="description" content="Current weather and 7-day forecast for FAU Boca Raton, powered by Open-Meteo.">
+  <meta name="theme-color" content="#003366">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/55/Florida_Atlantic_University_monogram_logo.svg"
+           alt="FAU logo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-fallback',textContent:'FAU'}))">
+      <div>
+        <div class="brand-title">Owl Weather</div>
+        <div class="brand-sub">Florida Atlantic University</div>
+      </div>
+    </div>
+    <form id="search" class="search" autocomplete="off">
+      <input id="q" type="search" placeholder="Search a city…" aria-label="Search a city">
+      <button type="submit">Search</button>
+      <ul id="results" class="results" hidden></ul>
+    </form>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-head">
+        <div>
+          <h1 id="place">Boca Raton, FL</h1>
+          <p id="updated" class="muted">Loading…</p>
+        </div>
+        <div class="actions">
+          <button id="home" type="button" class="ghost">FAU Boca</button>
+          <button id="unit" type="button" class="ghost" aria-label="Toggle units">°F / °C</button>
+        </div>
+      </div>
+      <div class="now">
+        <div class="icon" id="nowIcon">–</div>
+        <div>
+          <div class="temp" id="nowTemp">–</div>
+          <div class="cond" id="nowCond">–</div>
+          <div class="muted" id="nowFeels"></div>
+        </div>
+      </div>
+      <div class="stats">
+        <div><span>High / Low</span><strong id="hiLo">–</strong></div>
+        <div><span>Humidity</span><strong id="hum">–</strong></div>
+        <div><span>Wind</span><strong id="wind">–</strong></div>
+        <div><span>Rain chance</span><strong id="pop">–</strong></div>
+        <div><span>UV index</span><strong id="uv">–</strong></div>
+        <div><span>Sunrise / Sunset</span><strong id="sun">–</strong></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Next 24 hours</h2>
+      <div class="hourly" id="hourly"></div>
+    </section>
+
+    <section>
+      <h2>7-day forecast</h2>
+      <div class="daily" id="daily"></div>
+    </section>
+
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <footer>
+    Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0).
+    Built for ISM4211 at Florida Atlantic University. Go Owls!
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
