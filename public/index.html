@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#003366">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -19,14 +20,35 @@
         <div class="brand-sub">Florida Atlantic University</div>
       </div>
     </div>
-    <form id="search" class="search" autocomplete="off">
+    <form id="search" class="search" autocomplete="off" hidden>
       <input id="q" type="search" placeholder="Search a city…" aria-label="Search a city">
       <button type="submit">Search</button>
       <ul id="results" class="results" hidden></ul>
     </form>
+    <div id="userbar" class="userbar" hidden>
+      <span id="userEmail"></span>
+      <button id="signOut" type="button" class="ghost">Sign out</button>
+    </div>
   </header>
 
-  <main>
+  <section id="auth" class="auth" hidden>
+    <div class="auth-card">
+      <h1 id="authTitle">Sign in</h1>
+      <p class="muted" id="authSub">Sign in to see FAU Boca Raton weather.</p>
+      <form id="authForm">
+        <label>Email<input id="email" type="email" autocomplete="email" required></label>
+        <label id="pwLabel">Password<input id="password" type="password" autocomplete="current-password" minlength="6" required></label>
+        <button id="authSubmit" type="submit" class="primary">Sign in</button>
+      </form>
+      <p id="authMsg" class="auth-msg" hidden></p>
+      <div class="auth-links">
+        <button type="button" class="link" id="toggleMode">New here? Create an account</button>
+        <button type="button" class="link" id="forgot">Forgot password?</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="app" hidden>
     <section class="hero">
       <div class="hero-head">
         <div>
@@ -75,5 +97,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

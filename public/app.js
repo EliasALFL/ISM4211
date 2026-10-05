@@ -129,4 +129,6 @@ $('unit').addEventListener('click', () => {
   loadWeather();
 });
 
-loadWeather();
+// Weather loads only after sign-in; auth.js calls this once a session exists.
+let started = false;
+window.startWeather = () => { if (!started) { started = true; loadWeather(); } };
